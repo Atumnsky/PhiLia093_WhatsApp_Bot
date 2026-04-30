@@ -1,15 +1,17 @@
+require('dotenv').config(); 
 const { Client, LocalAuth, MessageMedia } = require('whatsapp-web.js');
 const qrcode = require('qrcode-terminal');
 const axios = require('axios');
 const fs = require('fs');
 const path = require('path');
 const sharp = require('sharp');
-require('dotenv').config(); 
+
 
 const DEEPSEEK_API_KEY = process.env.DEEPSEEK_API_KEY;
 const TAVILY_API_KEY = process.env.TAVILY_API_KEY;
 const ALIYUN_API_KEY = process.env.ALIYUN_API_KEY;
-const ONLINE_GROUP_ID = process.env.ONLINE_GROUP_ID;   // 也建议去掉默认值，改为环境变量
+const ONLINE_GROUP_ID = process.env.ONLINE_GROUP_ID; 
+const CREATOR_ID = '195035186348201@lid';
 
 // 检查必需的密钥，缺失时立即报错退出
 if (!DEEPSEEK_API_KEY) {
